@@ -1,0 +1,10 @@
+name: LG_UHC
+version: '${project.version}'
+main: lguhcgroup.lg_uhc.LG_UHC
+authors: [ Rl242Dev ]
+description: Based on a plugin from @Mathieu_Lapin
+commands:
+  lg:
+    description: Main command for LG UHC plugin
+    aliases:
+    usage: /lg

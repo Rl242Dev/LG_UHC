@@ -1,0 +1,33 @@
+# ! DO NOT TOUCH !
+#UNDER THIS : DO NOT TOUCH
+
+Border:
+  Startx:
+  Starty:
+  Endx:
+  Endy:
+  time: # (Start Time in ticks )
+
+Teleport:
+  world: "world"
+  x: 1000
+  z: 1000
+  food: true
+  food-stack: 64
+
+events:
+  randomLove: true
+
+roles:
+  villager:
+    total: 3
+
+
+vote:
+
+
+
+players:
+# uuid:
+#  role: nom
+#  couple: boolean
