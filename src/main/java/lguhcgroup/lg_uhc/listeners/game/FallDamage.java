@@ -1,4 +1,4 @@
-package lguhcgroup.lg_uhc.listeners;
+package lguhcgroup.lg_uhc.listeners.game;
 
 import lguhcgroup.lg_uhc.LG_UHC;
 import org.bukkit.event.EventHandler;

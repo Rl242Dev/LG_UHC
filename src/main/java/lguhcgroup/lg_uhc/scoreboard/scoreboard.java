@@ -2,6 +2,7 @@ package lguhcgroup.lg_uhc.scoreboard;
 
 import fr.mrmicky.fastboard.FastBoard;
 import lguhcgroup.lg_uhc.LG_UHC;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,6 +18,16 @@ public class scoreboard implements Listener {
 
     // Kill Listener and scheduler
     private final Map<UUID, FastBoard> boards = new HashMap<>();
+
+    public String CycleCalculator(long Time){
+        String day = "";
+        if(Time < 12300){
+            day = "Jour";
+        } else if (Time > 23850) {
+            day = "Nuit";
+        }
+        return day;
+    }
 
     public int GroupCalculator(int Players) {
         int groupes = 0;
@@ -37,18 +48,16 @@ public class scoreboard implements Listener {
 
         plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, () -> {
             for (FastBoard board : boards.values()){
-                int hour = plugin.getTime()/3600;
-                int minutes = hour *60;
-                int ShowMinutes = minutes;
-                int calcSeconds = (ShowMinutes - minutes) * 60;
+                String world = plugin.getConfig().getString("Teleport.world");
 
                 updateBoard(board,
                         "",
-                        "§bEpisode: "+(plugin.getTime()/1200)+1,
+                        "§bEpisode: "+(plugin.getTime()/1200+1),
                         "§c"+plugin.getAlivePlayer().size()+"§4 Joueurs",
                         "§4Groupes de §c"+GroupCalculator(plugin.getAlivePlayer().size()),
                         "",
                         "§6Timer: §e"+plugin.getTime()/3600+"h:"+(plugin.getTime()%3600)/60+"m:"+plugin.getTime()%60+"s",
+                        "§6Cycle: §e"+CycleCalculator(Bukkit.getServer().getWorld(world).getTime()),
                         ""
                         );
             }

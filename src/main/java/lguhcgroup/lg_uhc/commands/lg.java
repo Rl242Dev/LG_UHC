@@ -14,6 +14,8 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 import java.util.Random;
 
+import static lguhcgroup.lg_uhc.gui.config.config;
+
 import lguhcgroup.lg_uhc.roles.village.villager;
 
 public class lg implements CommandExecutor {
@@ -34,6 +36,7 @@ public class lg implements CommandExecutor {
         main.getConfig().addDefault("players."+UUID+".role", Role);
         main.getConfig().addDefault("players."+UUID+".couple", Couple);
         main.getConfig().addDefault("players."+UUID+".coupleMate", CoupleMate);
+        main.saveConfig();
     }
 
     Runnable GenerateLove(){
@@ -48,6 +51,8 @@ public class lg implements CommandExecutor {
             System.out.println("[MoneyIsTime] Seulement les joueurs peuvent utiliser cette commande");
             return true;
         }
+
+        Player player = (Player) sender;
 
         if (label.equalsIgnoreCase("lg")){
             switch(args[0]){
@@ -73,17 +78,16 @@ public class lg implements CommandExecutor {
 
                         p.teleport(new Location(Bukkit.getWorld(world), X,120,Z,0,0));
 
-                        main.getServer().broadcastMessage("§3[§6LG UHC§3]§9 Rôles dans 20Min");
+                        main.getServer().broadcastMessage("§3[§6LG UHC§3]§9 Rôles dans 20 minutes");
                         main.getServer().getScheduler().runTaskLater(main, () -> {
                             List<Player> players = main.getAlivePlayer();
 
-                            int TotalVillager = main.getConfig().getInt("roles.villager.total");
-                            for(Player player : players){ //TODO: A refaire pour l'instnat je test juste les messages et tout
+                            for(Player players1 : players){ //TODO: A refaire pour l'instnat je test juste les messages et tout
                                 villager Villager = new villager(); // Minus in total in config
 
-                                Msg.send(player, Villager.messageRole);
+                                Msg.send(players1, Villager.messageRole);
 
-                                String UUID = player.getUniqueId().toString(); // Give to player role in config and send him message
+                                String UUID = players1.getUniqueId().toString(); // Give to player role in config and send him message
                                 RegisterPlayer(UUID, "Villager", false, "None");
                             }
                         }, 200L);
@@ -103,10 +107,10 @@ public class lg implements CommandExecutor {
                     return true;
 
                 case "revive":
-                    Player player = Bukkit.getPlayer(args[1]);
-                    main.getAlivePlayer().add(player);
+                    Player p = Bukkit.getPlayer(args[1]);
+                    main.getAlivePlayer().add(p);
 
-                    String UUID = player.getUniqueId().toString();
+                    String UUID = p.getUniqueId().toString();
 
                     int z = main.getConfig().getInt("players."+UUID+".death-z");
                     int x = main.getConfig().getInt("players."+UUID+".death-x");
@@ -114,7 +118,11 @@ public class lg implements CommandExecutor {
 
                     String world = main.getConfig().getString("Teleport.world");
 
-                    player.teleport(new Location(Bukkit.getWorld(world), x,y,z,0,0));
+                    p.teleport(new Location(Bukkit.getWorld(world), x,y,z,0,0));
+                    return true;
+
+                case "config":
+                    player.openInventory(config);
                     return true;
             }
             return true;
