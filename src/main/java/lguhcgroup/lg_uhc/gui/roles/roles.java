@@ -22,9 +22,10 @@ public class roles {
     }
 
 
-    public static Inventory roles = Bukkit.createInventory(null, 9, "LG UHC Modules");
+    public static Inventory roles = Bukkit.createInventory(null, 9, "LG UHC Roles");
 
     static {
+        LG_UHC.getInstance().reloadConfig();
         ItemStack CutClean = generateItem("CSDQSD", LG_UHC.getInstance().getConfig().getString("modules.CutClean.state"), "http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");
         roles.setItem(0, CutClean);
 

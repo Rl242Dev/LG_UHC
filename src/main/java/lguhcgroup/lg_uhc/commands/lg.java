@@ -55,14 +55,14 @@ public class lg implements CommandExecutor {
         Player player = (Player) sender;
 
         if (label.equalsIgnoreCase("lg")){
-            switch(args[0]){
+            switch(args[0]) {
                 case "start":
                     main.setTime(0);
-                    for(Player p : Bukkit.getServer().getOnlinePlayers()){
+                    for (Player p : Bukkit.getServer().getOnlinePlayers()) {
                         main.getAlivePlayer().add(p);
                         int stack = main.getConfig().getInt("Teleport.food-stack");
                         boolean food = main.getConfig().getBoolean("Teleport.food");
-                        if(food){
+                        if (food) {
                             p.getInventory().setItem(0, new ItemStack(Material.COOKED_BEEF, stack));
                         }
 
@@ -76,13 +76,13 @@ public class lg implements CommandExecutor {
 
                         String world = main.getConfig().getString("Teleport.world");
 
-                        p.teleport(new Location(Bukkit.getWorld(world), X,120,Z,0,0));
+                        p.teleport(new Location(Bukkit.getWorld(world), X, 120, Z, 0, 0));
 
                         main.getServer().broadcastMessage("§3[§6LG UHC§3]§9 Rôles dans 20 minutes");
                         main.getServer().getScheduler().runTaskLater(main, () -> {
                             List<Player> players = main.getAlivePlayer();
 
-                            for(Player players1 : players){ //TODO: A refaire pour l'instnat je test juste les messages et tout
+                            for (Player players1 : players) { //TODO: A refaire pour l'instnat je test juste les messages et tout
                                 villager Villager = new villager(); // Minus in total in config
 
                                 Msg.send(players1, Villager.messageRole);
@@ -92,7 +92,7 @@ public class lg implements CommandExecutor {
                             }
                         }, 200L);
 
-                        if(main.getConfig().getBoolean("events.RandomLove") == true){
+                        if (main.getConfig().getBoolean("events.RandomLove") == true) {
                             main.getServer().getScheduler().runTaskLater(main, GenerateLove(), 30000L);
                         }
                     }
@@ -100,25 +100,32 @@ public class lg implements CommandExecutor {
 
                 case "say":
                     StringBuilder message = new StringBuilder();
-                    for(int i = 1; i < args.length; i++){
+                    for (int i = 1; i < args.length; i++) {
                         message.append(" ").append(args[i]);
                     }
-                    Bukkit.broadcastMessage("§6[INFO] §a"+message);
+                    Bukkit.broadcastMessage("§6[INFO] §a" + message);
                     return true;
 
                 case "revive":
-                    Player p = Bukkit.getPlayer(args[1]);
+                    Player p;
+                    try {
+                        p = Bukkit.getPlayer(args[1]);
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        Msg.send(player, "Commande : /lg revive [Player] ");
+                        return true;
+                    }
+
                     main.getAlivePlayer().add(p);
 
                     String UUID = p.getUniqueId().toString();
 
-                    int z = main.getConfig().getInt("players."+UUID+".death-z");
-                    int x = main.getConfig().getInt("players."+UUID+".death-x");
-                    int y = main.getConfig().getInt("players."+UUID+".death-y");
+                    int z = main.getConfig().getInt("players." + UUID + ".death-z");
+                    int x = main.getConfig().getInt("players." + UUID + ".death-x");
+                    int y = main.getConfig().getInt("players." + UUID + ".death-y");
 
                     String world = main.getConfig().getString("Teleport.world");
 
-                    p.teleport(new Location(Bukkit.getWorld(world), x,y,z,0,0));
+                    p.teleport(new Location(Bukkit.getWorld(world), x, y, z, 0, 0));
                     return true;
 
                 case "config":

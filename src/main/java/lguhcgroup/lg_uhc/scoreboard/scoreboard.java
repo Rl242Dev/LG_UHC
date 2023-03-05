@@ -4,6 +4,7 @@ import fr.mrmicky.fastboard.FastBoard;
 import lguhcgroup.lg_uhc.LG_UHC;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -50,6 +51,12 @@ public class scoreboard implements Listener {
             for (FastBoard board : boards.values()){
                 String world = plugin.getConfig().getString("Teleport.world");
 
+                Player player = board.getPlayer();
+
+                Location firstLocation = player.getLocation();
+                Location secondLocation = new Location(Bukkit.getWorld(world), 0,0,0,0,0);
+                int distance = (int) firstLocation.distance(secondLocation);
+
                 updateBoard(board,
                         "",
                         "§bEpisode: "+(plugin.getTime()/1200+1),
@@ -58,6 +65,8 @@ public class scoreboard implements Listener {
                         "",
                         "§6Timer: §e"+plugin.getTime()/3600+"h:"+(plugin.getTime()%3600)/60+"m:"+plugin.getTime()%60+"s",
                         "§6Cycle: §e"+CycleCalculator(Bukkit.getServer().getWorld(world).getTime()),
+                        "",
+                        "§6Centre: §e"+distance+" blocks",
                         ""
                         );
             }

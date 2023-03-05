@@ -1,4 +1,4 @@
-ScoreBoard : Episode Number (Time / 20 ), Time, Players Left, Border Position from center
+ScoreBoard : Episode Number (Time / 20 ), Time, Players Left, Border Position from center ✅
 
 Make an HUD to show distance from 0 0 (If not possible do it in scoreboard)
 
@@ -15,9 +15,6 @@ Exposed ( Give 2 fakes roles and 1 true role of a player randomly in the game )
 LGAlone ( At a random moment in the fourth episode ( 80 -> 100 min ) An lg will become an LGB (Only 14 hearts) )
 Trouple ( 3 Peoples couple )
 Rumeurs ( At a random moment, you will have 30 seconds to share a random fact on the game )
-
-
-Cycle jour nuit 10min/10min
 
 plugin.yml explain every command
 

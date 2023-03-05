@@ -22,25 +22,27 @@ public class HubListener implements Listener {
             return;
         }
 
-        if(item.getType().equals(Material.SKULL_ITEM)){
-            if(item.getItemMeta().getDisplayName().equalsIgnoreCase("§6LG UHC Events")){
-                player.setItemOnCursor(new ItemStack(Material.AIR));
-                player.openInventory(events);
-                event.setCancelled(true);
-            } else if (item.getItemMeta().getDisplayName().equalsIgnoreCase("§6LG UHC Roles")) {
-                player.setItemOnCursor(new ItemStack(Material.AIR));
-                player.openInventory(roles);
-                event.setCancelled(true);
-            } else if (item.getItemMeta().getDisplayName().equalsIgnoreCase("§6LG UHC Modules")) {
-                player.setItemOnCursor(new ItemStack(Material.AIR));
-                player.openInventory(modules);
-                event.setCancelled(true);
-            }
-        } else if (item.getType().equals(Material.BARRIER)) {
-            if(item.getItemMeta().getDisplayName().equalsIgnoreCase("§cQuitter le menu")){
-                player.setItemOnCursor(new ItemStack(Material.AIR));
-                player.openInventory(config);
-                event.setCancelled(true);
+        if(event.getView().getTitle().startsWith("LG UHC")){
+            if(item.getType().equals(Material.SKULL_ITEM)){
+                if(item.getItemMeta().getDisplayName().equalsIgnoreCase("§6LG UHC Events")){
+                    player.setItemOnCursor(new ItemStack(Material.AIR));
+                    player.openInventory(events);
+                    event.setCancelled(true);
+                } else if (item.getItemMeta().getDisplayName().equalsIgnoreCase("§6LG UHC Roles")) {
+                    player.setItemOnCursor(new ItemStack(Material.AIR));
+                    player.openInventory(roles);
+                    event.setCancelled(true);
+                } else if (item.getItemMeta().getDisplayName().equalsIgnoreCase("§6LG UHC Modules")) {
+                    player.setItemOnCursor(new ItemStack(Material.AIR));
+                    player.openInventory(modules);
+                    event.setCancelled(true);
+                }
+            } else if (item.getType().equals(Material.BARRIER)) {
+                if(item.getItemMeta().getDisplayName().equalsIgnoreCase("§cQuitter le menu")){
+                    player.setItemOnCursor(new ItemStack(Material.AIR));
+                    player.openInventory(config);
+                    event.setCancelled(true);
+                }
             }
         }
     }
