@@ -7,19 +7,22 @@ LgVote, players vote for a player that loses half of his life (during 2 minutes 
 CutClean ( Break every logs in a tree )
 Smelt ( Smelt ores on break )
 ChancesUp ( Gravel drops flint, Chicken allways give atleast 2 feathers )
-KillStreak ( Speed for 1 min after a kill )
 PVEResistance ( Resistance 1 for 30 min (0 -> 30))
 DiamondLimit ( Limit to 17 diamond (Pickaxe,Sword,ChestPlate,Boots) per person after the limit give gold ingots )
+FinalHeal ( At 30 Min, everyone is given Regeneration )
+
 Exposed ( Give 2 fakes roles and 1 true role of a player randomly in the game )
 LGAlone ( At a random moment in the fourth episode ( 80 -> 100 min ) An lg will become an LGB (Only 14 hearts) )
 Trouple ( 3 Peoples couple )
 Rumeurs ( At a random moment, you will have 30 seconds to share a random fact on the game )
-FinalHeal ( At 30 Min, everyone is given Regeneration )
+
 
 Cycle jour nuit 10min/10min
 
+plugin.yml explain every command
+
 Generate roles and store them
-Store players role in config.yml
+Store players role in config.yml ✅
 
 increment Time every second ✅
 

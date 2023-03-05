@@ -23,7 +23,7 @@ public class scoreboard implements Listener {
         String day = "";
         if(Time < 12300){
             day = "Jour";
-        } else if (Time > 23850) {
+        } else if (Time > 12300) {
             day = "Nuit";
         }
         return day;

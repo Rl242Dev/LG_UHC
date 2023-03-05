@@ -1,7 +1,7 @@
 package lguhcgroup.lg_uhc;
 
 import lguhcgroup.lg_uhc.commands.lg;
-import lguhcgroup.lg_uhc.listeners.gui.ConfigListener;
+import lguhcgroup.lg_uhc.listeners.gui.HubListener;
 import lguhcgroup.lg_uhc.listeners.info.ConnectionListener;
 import lguhcgroup.lg_uhc.listeners.game.DeathListener;
 import lguhcgroup.lg_uhc.listeners.game.FallDamage;
@@ -49,7 +49,7 @@ public final class LG_UHC extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new FallDamage(this), this); // Register Events
         Bukkit.getPluginManager().registerEvents(new ConnectionListener(), this);
         Bukkit.getPluginManager().registerEvents(new DeathListener(this), this);
-        Bukkit.getPluginManager().registerEvents(new ConfigListener(), this);
+        Bukkit.getPluginManager().registerEvents(new HubListener(), this);
 
         Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, () -> {
             setTime(getTime()+1);

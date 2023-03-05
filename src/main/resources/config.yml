@@ -16,11 +16,32 @@ Teleport:
   food-stack: 64
 
 events:
-  randomLove: true
+  Exposed:
+    chances: 0
+  LGAlone:
+    chances: 0
+  Trouple:
+    chances : 0
+  Rumeurs:
+    chances: 0
+
+modules:
+  CutClean:
+    state: disabled
+  Smelting:
+    state: disabled
+  ChancesUp:
+    state: disabled
+  PveResistance:
+    state: disabled
+  DiamondLimit:
+    state: disabled
+  FinalHeal:
+    state: disabled
 
 roles:
   villager:
-    total: 3
+    total: 0
 
 
 vote:

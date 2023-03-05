@@ -48,7 +48,13 @@ public class config {
     public static Inventory config = Bukkit.createInventory(null, 9, "LG UHC Config");
 
     static {
-        ItemStack headConfig = getSkull("LG UHC Events","http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");
-        config.setItem(0, headConfig);
+        ItemStack headEvents = getSkull("§6LG UHC Events","http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");
+        config.setItem(0, headEvents);
+
+        ItemStack headModules = getSkull("§6LG UHC Modules","http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");
+        config.setItem(1, headModules);
+
+        ItemStack headRoles = getSkull("§6LG UHC Roles","http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");
+        config.setItem(2, headRoles);
     }
 }
