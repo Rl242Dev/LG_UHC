@@ -1,12 +1,11 @@
 package lguhcgroup.lg_uhc.listeners.game;
 
 import lguhcgroup.lg_uhc.LG_UHC;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-
-import lguhcgroup.lg_uhc.utils.GetRole;
 
 public class DeathListener implements Listener {
 
@@ -25,6 +24,10 @@ public class DeathListener implements Listener {
     private final LG_UHC main;
     public DeathListener(LG_UHC lg_uhc){
         main = lg_uhc;
+    }
+
+    public String getRole(String UUID){
+        return main.getConfig().getString("players."+UUID+".role");
     }
 
     private final String[] LgList = {};
@@ -47,6 +50,9 @@ public class DeathListener implements Listener {
         main.getConfig().addDefault("players."+uuid+".death-y", y);
         main.getConfig().addDefault("players."+uuid+".death-x", x);
         main.saveConfig();
+
+
+        Bukkit.getServer().broadcastMessage("§c=========X=========\n§2Le village a perdu un de ses membres :"+player.getName()+", qui était"+getRole(uuid)+"\n§c=========X=========");
 
         /*
 

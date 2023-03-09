@@ -40,8 +40,101 @@ modules:
     state: disabled
 
 roles:
-  villager:
+  villageois:
+    total: 1
+    max: 5
+  pyromane:
     total: 0
+    max: 1
+  mineur:
+    total: 0
+    max: 1
+  corbeau:
+    total: 0
+    max: 1
+  ange:
+    total: 0
+    max: 1
+  chasseur:
+    total: 0
+    max: 1
+  idiot:
+    total: 0
+    max: 1
+  chaman:
+    total: 0
+    max: 1
+  citoyen:
+    total: 0
+    max: 1
+  soeurs: # Toujours faire +2 dans le gui
+    total: 0
+    max: 2
+  cupidon:
+    total: 0
+    max: 1
+  salvateur:
+    total: 0
+    max: 1
+  detective:
+    total: 0
+    max: 1
+  pretresse:
+    total: 0
+    max: 1
+  renard:
+    total: 0
+    max: 1
+  montreur:
+    total: 0
+    max: 1
+  sorciere:
+    total: 0
+    max: 1
+  petite-fille:
+    total: 0
+    max: 1
+  enfant-sauvage:
+    total: 0
+    max: 1
+  assassin:
+    total: 0
+    max: 1
+  voleur:
+    total: 0
+    max: 1
+  rival:
+    total: 0
+    max: 1
+  trublion:
+    total: 0
+    max: 1
+  lg:
+    total: 0
+    max: 5
+  lgb:
+    total: 0
+    max: 1
+  ipdl:
+    total: 0
+    max: 1
+  lg-amnesique:
+    total: 0
+    max: 1
+  lg-feutre:
+    total: 0
+    max: 1
+  lg-perfide:
+    total: 0
+    max: 1
+  lg-mystique:
+    total: 0
+    max: 1
+  vpl:
+    total: 0
+    max: 1
+
+
 
 
 vote:
