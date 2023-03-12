@@ -1,39 +1,22 @@
 package lguhcgroup.lg_uhc.roles;
 
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffectType;
+import org.bukkit.entity.Player;
 
 public class LgPlayer {
+
     private static Roles role;
-    private static String message;
-    private static PotionEffectType[] nightEffetcts;
-    private static PotionEffectType[] dayEffects;
-    private static ItemStack[] items;
-    public LgPlayer(Roles role){
-        message = role.getMessage();
-        nightEffetcts = role.getNightEffetcts();
-        dayEffects = role.getDayEffects();
-        items = role.getItems();
+    private static Player player;
+
+    public LgPlayer(Player player,Roles role){
         this.role = role;
+        this.player = player;
     }
 
     public Roles getRole(){
         return role;
     }
 
-    public String getMessage(){
-        return message;
-    }
-
-    public PotionEffectType[] getDayEffects(){
-        return dayEffects;
-    }
-
-    public PotionEffectType[] getNightEffetcts(){
-        return nightEffetcts;
-    }
-
-    public static ItemStack[] getItems() {
-        return items;
+    public Player getPlayer(){
+        return player;
     }
 }

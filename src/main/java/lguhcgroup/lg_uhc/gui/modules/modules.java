@@ -64,7 +64,7 @@ public class modules {
     public static void BuildInventoryModules(HumanEntity player, InventoryView inventory){
         LG_UHC.getInstance().reloadConfig();
 
-        ItemStack CutClean = generateItem("§6CutClean", LG_UHC.getInstance().getConfig().getString("modules.CutClean.state"), "http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");
+        ItemStack CutClean = generateItem("§6Timber", LG_UHC.getInstance().getConfig().getString("modules.Timber.state"), "http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");
         inventory.setItem(0, CutClean);
 
         ItemStack Smelting = generateItem("§6Smelting", LG_UHC.getInstance().getConfig().getString("modules.Smelting.state"), "http://textures.minecraft.net/texture/803255c939ff49ceb3abe54488598af684e661b21d45289f63b402fdd2bc7412");

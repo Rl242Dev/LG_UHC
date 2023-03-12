@@ -22,7 +22,7 @@ public class HubListener implements Listener {
             return;
         }
 
-        if(event.getView().getTitle().startsWith("LG UHC")){
+        if(event.getView().getTitle().startsWith("LG UHC Config")){
             if(item.getType().equals(Material.SKULL_ITEM)){
                 if(item.getItemMeta().getDisplayName().equalsIgnoreCase("§6LG UHC Events")){
                     player.setItemOnCursor(new ItemStack(Material.AIR));
