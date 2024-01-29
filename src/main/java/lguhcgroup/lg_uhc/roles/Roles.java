@@ -11,13 +11,17 @@ public class Roles {
     private static ItemStack[] items;
     private static String aura;
 
+    public Roles(){} //init with attributes
+    
     public Roles Villageois(){
         message = "§3[§6LG UHC§3]§9 [Privé] Vous êtes Simple Villageois \nVotre objectif est de gagner avec le Village. Vous ne disposez de rien pour vous aider";
         nightEffetcts = new PotionEffectType[]{PotionEffectType.NIGHT_VISION};
         dayEffects = new PotionEffectType[]{};
         items = new ItemStack[]{};
         aura = "Positive";
-        return null;
+
+        Roles role = new Roles(//init)
+        return role;
     }
 
     public Roles Loup_Garou(){
